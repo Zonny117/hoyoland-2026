@@ -1,14 +1,17 @@
 /* ── 토큰: 기본은 공식 포스터의 남보라 밤하늘 ───────────────── */
 :root {
-  --bg-top: #0d0b35;
-  --bg-mid: #231a6b;
-  --bg-bottom: #3a2a8f;
+  --bg-top: #0b0930;
+  --bg-mid: #181350;
+  --bg-bottom: #261d6e;
   --ink: #f3f1ff;
   --ink-soft: #b8b3e0;
   --ink-faint: #8c86bd;
   --line: rgba(255, 255, 255, .10);
-  --card: rgba(36, 30, 104, .55);
-  --card-border: rgba(190, 180, 255, .18);
+  --card: rgba(40, 33, 112, .94);
+  --card-border: rgba(200, 190, 255, .28);
+  /* 패널 안쪽에 놓이는 블록은 한 단계 밝게 */
+  --card-in: #352c8c;
+  --card-shadow: 0 6px 18px rgba(5, 3, 25, .35);
   --accent: #9b8cff;
   --accent-2: #7fd3ff;
   --gold: #f4d27a;
@@ -37,8 +40,10 @@
   --ink-soft: #544e86;
   --ink-faint: #7d78a8;
   --line: rgba(31, 26, 77, .10);
-  --card: rgba(255, 255, 255, .78);
-  --card-border: rgba(255, 255, 255, .95);
+  --card: rgba(255, 255, 255, .95);
+  --card-border: rgba(91, 75, 219, .18);
+  --card-in: #f3f0ff;
+  --card-shadow: 0 6px 18px rgba(60, 40, 160, .10);
   --accent: #5b4bdb;
   --accent-2: #3d6fd8;
   --gold: #b8892f;
@@ -390,8 +395,9 @@ h2 {
 }
 
 .panel {
+  --card: var(--card-in);
   position: relative;
-  background: var(--card);
+  background: var(--panel-bg, rgba(40, 33, 112, .94));
   border: 1px solid var(--card-border);
   border-radius: 24px;
   padding: 26px;
@@ -2501,3 +2507,13 @@ footer .trio .m:nth-child(2) {
     animation: none;
   }
 }
+
+/* ── 가독성: 블록 구분 강화 ───────────────────────────── */
+:root[data-theme="light"] .panel { --panel-bg: rgba(255, 255, 255, .95); }
+.box, .dish, .tr, .ban div, details, .etl .ec, .ghead .bubble, .maplinks a, .pill, .nowbar a { box-shadow: var(--card-shadow); }
+/* 게임 색 카드는 반투명 그라데이션 아래에 불투명 바탕을 깔아서 또렷하게 */
+.card, .ghead .bubble { background: var(--bg), var(--card-in); }
+.card { box-shadow: var(--card-shadow); }
+/* 블록 위 반짝이·컨페티가 비쳐 보이지 않도록 장식은 블록 뒤에서 조금 약하게 */
+.spark { opacity: .7; }
+.confetti { opacity: .35; }
