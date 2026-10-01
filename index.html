@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>호요랜드2026 원바 가이드</title>
+  <meta name="description" content="HoYoLAND 2026 · 10월 4일(일) 무대 시간표와 현장 안내">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 아이콘 심볼 -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="star4" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4.6 12 0z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="sky" id="sky" aria-hidden="true"></div>
+
+  <nav class="topnav">
+    <div class="in">
+      <a class="brand" href="#top">HOYO<span>LAND</span></a>
+      <div class="tabs" id="tabs">
+        <a href="#schedule">무대 시간표</a>
+        <a href="#entry">입장</a>
+        <a href="#checklist">준비물</a>
+        <a href="#booths">게임 부스</a>
+        <a href="#zones">굿즈·먹거리</a>
+        <a href="#map">오시는 길</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <button class="share-btn" id="shareBtn">공유</button>
+      <button class="theme-btn" id="themeBtn" aria-label="라이트/다크 전환">☾</button>
+    </div>
+  </nav>
+
+  <nav class="botnav" id="botnav" aria-label="빠른 이동">
+    <a href="#schedule"><span class="ic">🎤</span>무대</a>
+    <a href="#entry"><span class="ic">🎟️</span>입장</a>
+    <a href="#booths"><span class="ic">🎮</span>부스</a>
+    <a href="#food"><span class="ic">🍱</span>먹거리</a>
+    <a href="#map"><span class="ic">🗺️</span>지도</a>
+  </nav>
+
+  <main class="wrap" id="top">
+    <!-- 히어로 -->
+    <header class="hero">
+      <figure class="hero-art">
+        <img src="assets/hero-sm.webp" srcset="assets/hero-sm.webp 820w, assets/hero.webp 1536w"
+          sizes="(max-width: 920px) 100vw, 888px" alt="호요랜드 축제장의 페이몬, 이아스, 폼폼" fetchpriority="high">
+      </figure>
+      <div class="meta">KINTEX EXHIBITION CENTER 2 · HALLS 7–8</div>
+      <h1 class="hero-title"><svg class="st">
+          <use href="#star4" />
+        </svg>호요랜드2026 <span>원바 가이드</span></h1>
+      <div class="facts">
+        <span class="pill"><span class="k">DAY 03</span>10월 4일 (일)</span>
+        <span class="pill"><span class="k">OPEN</span>10:00 – 19:00</span>
+        <span class="pill"><span class="k">LAST ENTRY</span>17:00</span>
+      </div>
+      <div class="nowbar" id="nowbar">
+        <a href="#schedule">
+          <div class="lbl" id="nowLbl">FIRST STAGE</div>
+          <div class="t" id="nowT">—</div>
+          <div class="tm" id="nowTm"></div>
+        </a>
+        <a href="#schedule">
+          <div class="lbl">UP NEXT</div>
+          <div class="t" id="nextT">—</div>
+          <div class="tm" id="nextTm"></div>
+        </a>
+      </div>
+    </header>
+
+    <!-- 무대 시간표 -->
+    <section class="block" id="schedule">
+      <div class="sec-head">
+        <div class="eyebrow">STAGE SCHEDULE</div>
+        <h2>무대 이벤트 타임테이블</h2>
+        <p class="sec-sub">10월 4일(일) · 3개 게임 시간표 통합 · 관람은 별도 예매 없이 자유</p>
+      </div>
+      <div class="filters" role="group" aria-label="게임별 보기">
+        <button class="chip" aria-pressed="true" data-filter="all">전체</button>
+        <button class="chip" aria-pressed="false" data-filter="gi" style="--c: var(--gi)"><span
+            class="dot"></span>원신</button>
+        <button class="chip" aria-pressed="false" data-filter="hsr" style="--c: var(--hsr)"><span class="dot"></span>붕괴:
+          스타레일</button>
+        <button class="chip" aria-pressed="false" data-filter="zzz" style="--c: var(--zzz)"><span class="dot"></span>젠레스
+          존 제로</button>
+        <button class="chip" aria-pressed="false" data-filter="common" style="--c: var(--all)"><span
+            class="dot"></span>공통 이벤트</button>
+      </div>
+      <div class="panel deco">
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+      <p class="small" style="text-align:center;margin-top:10px">유저 참여형 무대는 무대 펜스 앞 신청 데스크에서 선착순 접수 또는 현장 추첨</p>
+    </section>
+
+    <!-- 입장 -->
+    <section class="block" id="entry">
+      <div class="sec-head">
+        <div class="eyebrow">ENTRY GUIDE</div>
+        <h2>입장 안내</h2>
+        <p class="sec-sub">모든 티켓은 온라인 사전 예매 · 현장 판매 없음</p>
+      </div>
+      <figure class="ticket-photo">
+        <img src="assets/tickets.webp" alt="입장 티켓을 든 여행자, 개척자, 프록시" loading="lazy">
+        <figcaption>
+          <b>티켓 챙겼지?</b>
+          <span>티켓에서 고른 게임의 웰컴 키트를 받아요 · 부스는 모든 게임 자유 체험</span>
+          <div class="tk-games"><i class="gi">원신</i><i class="hsr">붕괴: 스타레일</i><i class="zzz">젠레스 존 제로</i></div>
+        </figcaption>
+      </figure>
+      <div class="ghead guide hsr">
+        <img class="m float" src="assets/char/pompom.webp" alt="폼폼">
+        <div class="bubble">
+          <div class="who">폼폼</div>
+          <div class="say">승객 여러분, 티켓 확인하겠다! 모바일 티켓이랑 <b>실물 신분증</b> 꼭 준비하라고. 17시 넘으면 못 들어온다!</div>
+        </div>
+      </div>
+      <div class="panel deco">
+        <ol class="etl" id="entryTl">
+          <li data-t="0" style="--c: var(--accent-2)">
+            <div class="et">00:00</div><span class="en"></span>
+            <div class="ec">
+              <div class="eh">모바일 티켓 활성화</div>
+              <div class="ed">티켓링크 앱 → 마이페이지 → 예매내역 → 스마트티켓 발권<br><span class="small">스크린샷·사본으로는 입장 불가</span></div>
+            </div>
+          </li>
+          <li data-t="540" style="--c: var(--gold)">
+            <div class="et">09:00</div><span class="en"></span>
+            <div class="ec">
+              <div class="eh">등록데스크 대기줄 오픈</div>
+              <div class="ed">이 시간 전엔 대기 구역이 없어요. 밤샘·대리 대기 자제.</div>
+            </div>
+          </li>
+          <li data-t="600" style="--c: var(--all)">
+            <div class="et">10:00<small>~ 12:00</small></div><span class="en"></span>
+            <div class="ec">
+              <div class="eh">조별 순차 체크인</div>
+              <div class="eg"><span><b>A·B</b>10:00</span><span><b>C·D</b>11:00</span><span><b>E·F</b>12:00</span></div>
+              <div class="ed">티켓 + 실물 신분증 확인 → 소지품 검사 → 입장 팔찌 착용 → 웰컴 키트 수령</div>
+            </div>
+          </li>
+          <li data-t="1020" style="--c: var(--warn)">
+            <div class="et">17:00</div><span class="en"></span>
+            <div class="ec">
+              <div class="eh">현장 입장 마감</div>
+              <div class="ed warn">17시 이후 도착하거나 예매일이 아니면 입장 불가</div>
+            </div>
+          </li>
+          <li data-t="1140" style="--c: var(--end)">
+            <div class="et">19:00</div><span class="en"></span>
+            <div class="ec">
+              <div class="eh">운영 종료 · 재입장 마감</div>
+              <div class="ed">탈의실·물품 보관소는 20:00까지 · 맡긴 짐은 당일에 꼭 찾기</div>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div style="margin-top:14px">
+        <div class="box">
+          <h3>입장 팔찌 & 재입장</h3>
+          <ul>
+            <li>팔찌만 있으면 당일 <b>10:00–19:00</b> 자유롭게 나갔다 들어올 수 있어요.</li>
+            <li>실내 ↔ 야외(후면 광장)는 입출입 전용 통로로 이동.</li>
+            <li class="warn">팔찌가 끊어지거나 분실되면 재입장·재발급 불가.</li>
+            <li>팔찌 QR로 굿즈를 주문하고, 웰컴 키트 수령 확인도 팔찌로 해요.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 준비물 -->
+    <section class="block" id="checklist">
+      <div class="sec-head">
+        <div class="eyebrow">CHECKLIST</div>
+        <h2>출발 전 체크리스트</h2>
+        <p class="sec-sub">체크한 항목은 이 기기에 저장돼요</p>
+      </div>
+      <figure class="prep-photo">
+        <img src="assets/checklist.webp" alt="축제 준비물 목록을 펼쳐 든 페이몬" loading="lazy">
+        <figcaption>
+          <div class="prep-say"><b>페이몬</b> 축제 준비물, 페이몬이랑 하나씩 체크하자!</div>
+          <div class="prep-bar" aria-hidden="true"><i id="prepFill"></i></div>
+          <div class="prep-count" id="prepCount">0 / 0</div>
+        </figcaption>
+      </figure>
+      <div class="grid2">
+        <div class="box">
+          <h3>꼭 챙길 것</h3>
+          <ul class="check" id="checklistBox">
+            <li><label><input type="checkbox" data-k="app"><span><b>티켓링크 앱</b> 로그인 (스크린샷·사본 불가)</span></label></li>
+            <li><label><input type="checkbox" data-k="id"><span><b>사진 있는 실물 신분증</b> — 주민등록증·운전면허증·여권·모바일
+                  신분증(정부24)</span></label></li>
+            <li><label><input type="checkbox" data-k="card"><span><b>카드 / 삼성페이·애플페이</b> — 현장 결제는 현금 불가</span></label>
+            </li>
+            <li><label><input type="checkbox" data-k="guide"><span>입장 때 받은 <b>이벤트 가이드북</b> — 무료 체험존 필수</span></label>
+            </li>
+            <li><label><input type="checkbox" data-k="water"><span><b>500mL 이하 투명 미개봉 생수</b>만 반입 가능</span></label></li>
+            <li><label><input type="checkbox" data-k="battery"><span>보조배터리 (티켓·굿즈 주문 모두 폰으로!)</span></label></li>
+          </ul>
+        </div>
+        <div class="box" style="--c: var(--warn)">
+          <h3>인정되지 않는 신분증</h3>
+          <p>사진·생년월일 확인이 안 되는 학생증, 주민등록등본, 사원증, 공무원증, 만료된 여권·외국인등록증, 여권정보증명서 없는 신여권(2020.12.21 이후 발급), 관인 스티커 없는
+            발급신청확인서, <b>모바일 신분증 캡처본</b></p>
+          <p class="small" style="margin-top:10px">외국인: 여권 / 외국인등록증 등 사진 부착 실물 신분증</p>
+        </div>
+      </div>
+
+      <h3 class="sub-title">반입 금지 물품</h3>
+      <div class="security">
+        <figure class="sec-photo">
+          <img src="assets/security.webp" alt="입구에서 반입 금지 물품을 검사하는 이아스" loading="lazy">
+          <figcaption><b>이아스</b> 웅나! <span>(입구에서 소지품 검사 중! 금지 물품은 보관해주지 않아.)</span></figcaption>
+        </figure>
+        <div class="ban">
+          <div><span class="ic">🔪</span><b>칼</b><span>식칼·문구용 등 일체</span></div>
+          <div><span class="ic">🔥</span><b>화재 위험 용품</b><span>라이터·폭죽·화약·스프레이</span></div>
+          <div><span class="ic">🎈</span><b>인화성 물질</b><span>알코올·가스·헬륨풍선</span></div>
+          <div><span class="ic">🛴</span><b>이동 수단</b><span>전동휠·자전거·킥보드 (휠체어 가능)</span></div>
+          <div><span class="ic">⛺</span><b>다리 있는 의자</b><span>캠핑 용품 일체</span></div>
+          <div><span class="ic">🛸</span><b>관람 방해 물품</b><span>드론·레이저 등</span></div>
+          <div><span class="ic">🥤</span><b>외부 음식·음료</b><span>유리병·캔·뜨거운 음료·배달 음식</span></div>
+          <div class="ok"><span class="ic">💧</span><b>생수는 OK</b><span>500mL 이하 투명·미개봉</span></div>
+        </div>
+      </div>
+      <p class="small" style="text-align:center;margin-top:10px">반려동물 반입 불가 · 적발 물품은 보관해주지 않아요 (외부 유료 보관소 이용)</p>
+    </section>
+
+    <!-- 게임 부스 -->
+    <section class="block" id="booths">
+      <div class="sec-head">
+        <div class="eyebrow">GAME BOOTHS</div>
+        <h2>게임별 부스 & 웰컴 키트</h2>
+        <p class="sec-sub">티켓에서 고른 게임과 상관없이 모든 부스 체험 가능 · 웰컴 키트만 선택한 게임으로</p>
+      </div>
+      <div class="gtabs" role="tablist">
+        <button class="gtab gi" role="tab" aria-selected="true" data-g="gi"><img src="assets/char/paimon-head.webp"
+            alt="">원신</button>
+        <button class="gtab hsr" role="tab" aria-selected="false" data-g="hsr"><img src="assets/char/pompom-head.webp"
+            alt="">붕괴: 스타레일</button>
+        <button class="gtab zzz" role="tab" aria-selected="false" data-g="zzz"><img src="assets/char/eous-head.webp"
+            alt="">젠레스 존 제로</button>
+      </div>
+
+      <!-- 원신 -->
+      <div class="gpanel gi on" id="g-gi" role="tabpanel">
+        <div class="ghead">
+          <img class="m float" src="assets/char/paimon.webp" alt="페이몬">
+          <div class="bubble">
+            <div class="who">페이몬</div>
+            <div class="say">여행자! 오늘은 원신 무대가 두 번이나 있어! 부스는 무대 오른쪽, 모험가 길드 의뢰부터 받으러 가자~</div>
+            <div class="theme">테마 · 달빛에 전하는 세레나데 (Serenade to the Moonlight)</div>
+          </div>
+        </div>
+        <div class="grid2">
+          <div class="box">
+            <h3>웰컴 키트</h3>
+            <ul>
+              <li><b>미니피규어 디오라마 세트</b> (호요랜드2026) – 콜롬비나 · 달 구조물은 축광!</li>
+              <li>홀로그램 티켓 · 부직포백 · 행사 가이드북 · 입장 팔찌</li>
+              <li><b>리딤코드</b> — 원석×100, 모라×20,000, 영웅의 경험×5, 정제용 마법 광물×5</li>
+              <li class="small">10/2 ~ 11/30 23:59 · 모험등급 5 이상 · 공식 홈페이지 → 쿠폰교환</li>
+            </ul>
+            <h3 style="margin-top:16px">포토존</h3>
+            <p>노드크라이 CG 전시존 · 달의 신 신상 · 중앙역</p>
+          </div>
+          <div class="box">
+            <h3>무료 체험존 — 모험가 길드 의뢰</h3>
+            <div class="flow">
+              <span>모험가 길드</span><i>›</i><span>오늘의 의뢰 1·2·3</span><i>›</i><span>???</span><i>›</i><span>마지막
+                의뢰</span><i>›</i><span>소원의 쪽지</span>
+            </div>
+            <ul>
+              <li><b>모험가 길드</b> — 카드 6장 중 1장으로 지원 세력 확인 → 노드크라이 세력 스탬프</li>
+              <li><b>오늘의 의뢰 1·2·3</b> — 의뢰마다 포토카드 1매 (플린스 · 아이노 · 라우마)</li>
+              <li><b>???</b> — 익숙한 방을 탐색해 숨겨진 마지막 의뢰 받기</li>
+              <li><b>마지막 의뢰</b> — 「■■■」의 규칙을 지켜 클리어 → 「???」 랜덤 1매</li>
+              <li><b>소원의 쪽지</b> — 포스트잇에 소원 남기기</li>
+            </ul>
+            <p class="small" style="margin-top:8px">가이드북 원신 페이지 지참 필수</p>
+          </div>
+          <div class="box span2">
+            <h3>유료 체험존 — 기도의 밤 축제</h3>
+            <table class="tbl">
+              <tr>
+                <td><span class="badge paid">유료</span>점괘 뽑기</td>
+                <td class="price">1회 2,000원</td>
+              </tr>
+              <tr class="note">
+                <td colspan="2">점괘 포토카드 109종 랜덤 · 1회 / 10연 / 30연 선택 결제 (30연은 별도 줄)</td>
+              </tr>
+              <tr>
+                <td><span class="badge paid">유료</span>도전! 고리? 던지기!</td>
+                <td class="price">3,000원 · 5회</td>
+              </tr>
+              <tr class="note">
+                <td colspan="2">성공 횟수별: 5회 A상 · 3–4회 B상 · 2회 C상 · 0–1회 D상</td>
+              </tr>
+              <tr>
+                <td><span class="badge paid">유료</span>무는 범고래</td>
+                <td class="price">1회 4,000원</td>
+              </tr>
+              <tr class="note">
+                <td colspan="2">참여자 전원 원신 랜덤 굿즈 1개 · 썩은 이빨을 고르면 벌칙!</td>
+              </tr>
+            </table>
+            <div class="quote">
+              <b>썩은 이빨 벌칙</b> — 아래 중 하나를 완벽하게 외치면 '명예의 치의사' 명단에 이름이 올라가요.<br>
+              ① 우리 원신 정말 많이 사랑한다!! ② 집에 돌아오신 걸 환영합니다, 달의 신님! ③ (검지를 치켜들고) 세계식·반전——「환원」 ④ 고리타분한 세계 따위가 감히 나를 막으려 해!? · 또는
+              "포기하겠습니다!"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 스타레일 -->
+      <div class="gpanel hsr" id="g-hsr" role="tabpanel">
+        <div class="ghead">
+          <img class="m float" src="assets/char/pompom.webp" alt="폼폼">
+          <div class="bubble">
+            <div class="who">폼폼</div>
+            <div class="say">개척자, 오늘은 너굴통신 견습 기자가 되는 날이다! 부스는 굿즈존 바로 옆이야. 13:30 콘서트도 놓치지 말라고!</div>
+            <div class="theme">테마 · 환락, 상상 그 이상으로</div>
+          </div>
+        </div>
+        <div class="grid2">
+          <div class="box">
+            <h3>웰컴 키트</h3>
+            <ul>
+              <li><b>호요랜드2026 비치타올</b> + 홀로그램 티켓</li>
+              <li>행사 부클릿 · 부직포백</li>
+              <li><b>리딤코드</b> — 성옥×100, 신용포인트×20,000, 여행 가이드×5, 정제한 에테르×5</li>
+              <li class="small">~ 2026/12/31 23:59 · 계정당 최대 4회</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>부스 체험 — 너굴 기자 위장 취업!</h3>
+            <table class="tbl">
+              <tr>
+                <td><span class="badge">무료</span>너굴통신 견습 기자 등록</td>
+                <td>일일 기자증</td>
+              </tr>
+              <tr>
+                <td><span class="badge">무료</span>잠입 작전: 카메라를 피해라</td>
+                <td>CCTV 피하기</td>
+              </tr>
+              <tr>
+                <td><span class="badge">무료</span>긴급 취재: 스파키 LIVE</td>
+                <td>춤 대결</td>
+              </tr>
+              <tr>
+                <td><span class="badge">무료</span>특종! 망상 병원 취재</td>
+                <td>힌트 찾기</td>
+              </tr>
+              <tr>
+                <td><span class="badge paid">유료</span>스타피스 보석 감정 시스템</td>
+                <td class="price">10,000원</td>
+              </tr>
+              <tr class="note">
+                <td colspan="2">부서 확인 후 경품 도전 · 한정 캔배지 세트 등 · 최대 2연속</td>
+              </tr>
+              <tr>
+                <td><span class="badge paid">유료</span>또또또 주사위를 던져라! 코스믹 포스</td>
+                <td class="price">8,000원</td>
+              </tr>
+              <tr class="note">
+                <td colspan="2">랜덤 카드팩(3매입) · 최대 4연속</td>
+              </tr>
+              <tr>
+                <td><span class="badge">무료</span>취재 완료! 수사 현장 보고서</td>
+                <td>체험 후기</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 젠레스 -->
+      <div class="gpanel zzz" id="g-zzz" role="tabpanel">
+        <div class="ghead">
+          <img class="m float" src="assets/char/eous.webp" alt="이아스">
+          <div class="bubble">
+            <div class="who">이아스</div>
+            <div class="say">웅나나! 웅나! <span style="opacity:.7">(로스캘리퍼 전학생 환영! 부스는 입구 왼쪽이야. 무료존은 순서대로!)</span></div>
+            <div class="theme">테마 · 구름 너머로 내려앉은 시</div>
+          </div>
+        </div>
+        <div class="grid2">
+          <div class="box">
+            <h3>웰컴 키트</h3>
+            <ul>
+              <li><b>이아스 블록</b> + 홀로그램 티켓</li>
+              <li>부직포백 · 행사 리플렛 · 입장 팔찌</li>
+              <li><b>리딤코드</b> — 폴리크롬×100, 데니×20,000, 선임 조사원 기록×3</li>
+              <li class="small">10/1 ~ 2027/1/1 00:00 · UID당 최대 4회</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>부스 체험</h3>
+            <div class="flow"><span>FREE 1</span><i>›</i><span>FREE 2</span><i>›</i><span>FREE 3</span></div>
+            <table class="tbl">
+              <tr>
+                <td><span class="badge">FREE 1</span>Welcome to 로스캘리퍼!</td>
+                <td>오렐리아 아카데미 학생증</td>
+              </tr>
+              <tr>
+                <td><span class="badge">FREE 2</span>긴급 대비책: 「Bangboo」 복귀 작전</td>
+                <td>벨리나 공무원증</td>
+              </tr>
+              <tr>
+                <td><span class="badge">FREE 3</span>Two to Tango</td>
+                <td>레미엘 수배령</td>
+              </tr>
+              <tr>
+                <td><span class="badge paid">PAID</span>행운의 애프터눈 티</td>
+                <td class="price">2,000원</td>
+              </tr>
+              <tr class="note">
+                <td colspan="2">포토카드 14종 · 최대 10연속</td>
+              </tr>
+              <tr>
+                <td><span class="badge paid">PAID</span>「Bangboo」 극장</td>
+                <td class="price">14,000원</td>
+              </tr>
+              <tr class="note">
+                <td colspan="2">공식 굿즈 랜덤 1종 + 「Bangboo」 모자 · 최대 2회</td>
+              </tr>
+            </table>
+            <p class="small" style="margin-top:8px">무료존은 가이드북 지참 · 유료존은 순서 자유, 줄은 따로</p>
+          </div>
+        </div>
+      </div>
+      <p class="small" style="text-align:center;margin-top:12px">유료 체험은 모두 카드 결제만 · 증정품 소진 시 조기 마감 · 증정품 교환/환불 불가</p>
+    </section>
+
+    <!-- 굿즈 / 먹거리 / 편의 -->
+    <section class="block" id="zones">
+      <div class="sec-head">
+        <div class="eyebrow">GOODS · FOOD · SERVICE</div>
+        <h2>굿즈존 · 푸드존 · 편의시설</h2>
+      </div>
+      <div class="grid2">
+        <div class="box" style="--c: var(--all)">
+          <h3>굿즈존 — 팔찌 QR 사전 결제</h3>
+          <ul>
+            <li>팔찌 QR → 구매 페이지 → 비밀번호 설정 → 장바구니·사은품 선택 → 결제 → 지정 시간에 <b>픽업존 수령</b></li>
+            <li>호요랜드2026 한정 굿즈 <b>품목당 1인 5개</b> · 공식 굿즈 제한 없음 (매일 재입고)</li>
+            <li>다른 게임 입장 특전도 굿즈존에서 구매 가능 (게임별 최대 5개)</li>
+            <li><b>1만원</b> 이상 쇼핑백 · <b>3만원</b> 이상 3개 게임 엽서 세트</li>
+            <li>11–16시 픽업 회차별 선착순 100명 <b>럭키드로우 쿠폰</b></li>
+            <li class="warn">픽업 시간 2시간 초과 시 주문 자동 취소</li>
+          </ul>
+        </div>
+        <div class="box" style="--c: var(--all)">
+          <h3>DIY존 (유료)</h3>
+          <ul>
+            <li><b>지퍼백 키링</b> 4,000원 · 아크릴 참 1개 선택 · 최대 2개</li>
+            <li><b>에코백</b> 10,000원 · 대형 스티커 1 또는 소형 4 중 택1 · 대형 추가 3,000원 (최대 3)</li>
+            <li>매일 선착순 <b>200명 럭키드로우 쿠폰</b></li>
+            <li>결제 영수증을 스태프에게 보여줘야 참여 가능</li>
+          </ul>
+        </div>
+        <div class="box" style="--c: var(--cos)">
+          <h3>럭키드로우 (무대 16:30)</h3>
+          <ul>
+            <li>쿠폰 받는 곳: DIY존 200장 + 굿즈존 500장 (경로별 1인 1장)</li>
+            <li>매일 <b>80명</b> 추첨 · 공식 피규어·아크릴 스탠드 등</li>
+            <li class="warn">3번 호명에 대답 없으면 재추첨 — 현장에 꼭 있기!</li>
+          </ul>
+        </div>
+        <div class="box" style="--c: var(--cos)">
+          <h3>코스프레 퍼레이드 (18:00)</h3>
+          <ul>
+            <li>관람: <b>17:30부터</b> 7–8홀 스탠딩존 입장 대기</li>
+            <li>참가자: 16시 7-B 〈현장 운영〉 데스크 체크인 → 17시 메인 무대·원신 부스 사이 집결</li>
+            <li>코스어 촬영은 반드시 사전 동의 · 과도한 플래시 자제</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="food">푸드존 <span class="small">야외 후면 광장 · 메뉴마다 캐릭터 푸드픽</span></h3>
+      <div class="ghead guide zzz">
+        <img class="m float" src="assets/char/eous.webp" alt="이아스">
+        <div class="bubble">
+          <div class="who">이아스</div>
+          <div class="say">웅나나! <span style="opacity:.75">(먹거리는 야외 후면 광장! 메뉴마다 푸드픽을 줘. 버블티는… 이아스 거야.)</span></div>
+        </div>
+      </div>
+      <div class="gtabs ftabs" role="tablist">
+        <button class="gtab gi" role="tab" aria-selected="true" data-f="gi">원신</button>
+        <button class="gtab hsr" role="tab" aria-selected="false" data-f="hsr">붕괴: 스타레일</button>
+        <button class="gtab zzz" role="tab" aria-selected="false" data-f="zzz">젠레스 존 제로</button>
+      </div>
+
+      <div class="fpanel gi on" id="f-gi">
+        <div class="menu">
+          <figure class="dish"><img src="assets/food/gi-chicken.webp" alt="모험가 특제 닭구이" loading="lazy">
+            <figcaption><b>모험가 특제 닭구이</b><span class="won">10,000원</span><span class="pick">린네아 푸드픽</span></figcaption>
+          </figure>
+          <figure class="dish"><img src="assets/food/gi-hotdog.webp" alt="달빛 한줄기의 축제 핫도그" loading="lazy">
+            <figcaption><b>달빛 한줄기의 축제 핫도그</b><span class="won">7,000원</span><span class="pick">콜롬비나 푸드픽</span>
+            </figcaption>
+          </figure>
+          <figure class="dish"><img src="assets/food/gi-crepe.webp" alt="뚝딱뚝딱 디저트 공방 크레이프" loading="lazy">
+            <figcaption><b>뚝딱뚝딱 디저트 공방 크레이프</b><span class="won">7,000원</span><span class="pick">아이노 푸드픽</span>
+            </figcaption>
+          </figure>
+          <figure class="dish"><img src="assets/food/gi-dessert.webp" alt="커피에 비친 술식 디저트 세트" loading="lazy">
+            <figcaption><b>커피에 비친 술식 디저트 세트</b><span class="won">10,000원</span><span class="pick">산드로네 푸드픽</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="picks"><img src="assets/food/gi-picks.webp" alt="원신 푸드픽 4종" loading="lazy"><span>메뉴 주문 시 푸드픽
+            증정!</span></div>
+        <p class="allergy">알레르기 · 핫도그: 밀·계란·우유·토마토 / 닭구이: 밀·계란·우유·대두·닭고기 / 디저트 세트: 밀·계란·우유 / 크레이프: 밀·계란·우유·<b>땅콩</b></p>
+      </div>
+
+      <div class="fpanel hsr" id="f-hsr">
+        <div class="menu">
+          <figure class="dish"><img src="assets/food/hsr-omurice.webp" alt="임무 순서: 오므라이스&가라아게" loading="lazy">
+            <figcaption><b>임무 순서: 오므라이스&가라아게</b><span class="won">9,000원</span><span class="pick">블레이드 푸드픽</span>
+            </figcaption>
+          </figure>
+          <figure class="dish"><img src="assets/food/hsr-dumpling.webp" alt="행운의 황금 레몬 만두" loading="lazy">
+            <figcaption><b>행운의 황금 레몬 만두</b><span class="won">7,000원</span><span class="pick">효광 푸드픽</span></figcaption>
+          </figure>
+          <figure class="dish"><img src="assets/food/hsr-pancake.webp" alt="복슬복슬호 팬케이크" loading="lazy">
+            <figcaption><b>복슬복슬호 팬케이크</b><span class="won">7,000원</span><span class="pick">나힐럭스 푸드픽</span></figcaption>
+          </figure>
+          <figure class="dish"><img src="assets/food/hsr-coffee.webp" alt="개척 여정의 커피" loading="lazy">
+            <figcaption><b>개척 여정의 커피</b><span class="won">6,000원</span><span class="pick">히메코·노바 푸드픽</span></figcaption>
+          </figure>
+        </div>
+        <div class="setdeal">팬케이크 + 커피 세트 <b>12,000원</b> <span>푸드픽 2종</span></div>
+        <p class="allergy">알레르기 · 오므라이스&가라아게: 계란·닭고기·밀 / 만두: 밀·전분·돼지고기 / 팬케이크: 밀·계란·우유 / 커피: 우유</p>
+      </div>
+
+      <div class="fpanel zzz" id="f-zzz">
+        <p class="fzone">Aurelia Academy <b>CAFETERIA</b> <span>코스 주문 시 와이즈&벨 푸드픽</span></p>
+        <div class="menu">
+          <figure class="dish"><img src="assets/food/zzz-courseA.webp" alt="급식 A코스 피시 앤 칩스 세트" loading="lazy">
+            <figcaption><b>A코스 · 피시 앤 칩스 세트</b><span class="won">12,000원</span><span class="sub">피시앤칩스 + 완두콩/브로콜리/당근 +
+                주스</span></figcaption>
+          </figure>
+          <figure class="dish"><img src="assets/food/zzz-courseB.webp" alt="급식 B코스 스테이크 세트" loading="lazy">
+            <figcaption><b>B코스 · 스테이크 세트</b><span class="won">13,500원</span><span class="sub">선데이 로스트 + 감자 무스 샐러드 + 채소 +
+                주스</span></figcaption>
+          </figure>
+        </div>
+        <p class="fzone">Cuppa <b>MOMENT</b> <span>세트 주문 시 레미엘·벨리나 푸드픽 (2종 중 랜덤)</span></p>
+        <div class="menu">
+          <figure class="dish"><img src="assets/food/zzz-cuppa.webp" alt="한 잔의 여유 세트" loading="lazy">
+            <figcaption><b>〈한 잔의 여유〉 세트</b><span class="won">10,000원</span><span class="sub">홍차 / 밀크티 + 스콘 · 우유·펄 추가 시
+                +1,000원</span></figcaption>
+          </figure>
+          <figure class="dish"><img src="assets/food/zzz-blues.webp" alt="트루 블루스 세트" loading="lazy">
+            <figcaption><b>〈트루 블루스〉 세트</b><span class="won">12,000원</span><span class="sub">베일리스 하이볼(논알콜) + 소시지 롤</span>
+            </figcaption>
+          </figure>
+          <figure class="dish"><img class="tiny" src="assets/food/zzz-cookie.webp" alt="이아스 쿠키" loading="lazy">
+            <figcaption><b>이아스 쿠키</b><span class="won">3,000원</span></figcaption>
+          </figure>
+          <figure class="dish"><img class="tiny" src="assets/food/zzz-setpick.webp" alt="레미엘 벨리나 푸드픽" loading="lazy">
+            <figcaption><b>세트 메뉴 특전</b><span class="pick">레미엘·벨리나 푸드픽</span></figcaption>
+          </figure>
+        </div>
+        <p class="allergy">알레르기 · 한 잔의 여유: 밀·우유·계란 / 트루 블루스: 우유·밀가루·돼지고기 / 이아스 쿠키: 밀가루·계란 / A코스: 밀·계란 / B코스: 소고기·밀·계란·우유
+        </p>
+      </div>
+      <p class="small" style="text-align:center;margin-top:10px">메뉴·푸드픽 소진 시 조기 마감 · 구매 후 바로 드세요</p>
+
+      <div class="grid3" style="margin-top:14px">
+        <div class="box">
+          <h3>탈의실 · 파우더룸</h3>
+          <p>제2전시장 <b>2층 7-A·7-B 입구</b><br>무료 · 1인 약 20분<br>10/4 운영 <b>10:00–20:00</b></p>
+        </div>
+        <div class="box">
+          <h3>물품 보관소</h3>
+          <p>제2전시장 <b>2층 7홀 앞 로비</b><br>짐 1개당 <b>5,000원</b>/일 · 카드만<br>10/4 운영 <b>10:00–20:00</b><br><span
+              class="small">귀중품 불가 · 당일 미수령 시 폐기</span></p>
+        </div>
+        <div class="box">
+          <h3>파트너 부스</h3>
+          <p><b>구글플레이</b> (8홀) 미니게임·포토카드·럭키드로우<br><b>갤럭시 스토어</b> (7홀) 테마·100% 당첨 쿠폰 (만 14세+)<br><b>몬스터 에너지</b> (후면 광장)
+            성인 1인 1캔</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 오시는 길 / 배치도 -->
+    <section class="block" id="map">
+      <div class="sec-head">
+        <div class="eyebrow">LOCATION</div>
+        <h2>오시는 길 & 행사장 배치도</h2>
+        <p class="sec-sub">경기도 고양시 일산서구 킨텍스로 217-59 · 킨텍스 제2전시장 7–8홀</p>
+      </div>
+      <div class="route">
+        <figure class="route-photo">
+          <img src="assets/route.webp" alt="별 지도를 짚으며 길을 찾는 폼폼" loading="lazy">
+          <figcaption><b>폼폼</b> 목적지는 킨텍스 제2전시장 7–8홀! 길 잃지 말라고~</figcaption>
+        </figure>
+        <div class="route-side">
+          <div class="transit">
+            <div class="tr" style="--c: #f0a35a">
+              <span class="ti"><svg viewBox="0 0 24 24">
+                  <rect x="5" y="3" width="14" height="14" rx="3" />
+                  <path d="M5 11h14M9 21l1.5-4M15 21l-1.5-4" />
+                  <circle cx="8.5" cy="14" r=".8" fill="currentColor" />
+                  <circle cx="15.5" cy="14" r=".8" fill="currentColor" />
+                </svg></span>
+              <div class="tl">지하철</div>
+              <div class="tm">3호선 <b>대화역</b></div>
+              <div class="ts">1·2·3번 출구 방향</div>
+            </div>
+            <div class="tr" style="--c: #5fe0cf">
+              <span class="ti"><svg viewBox="0 0 24 24">
+                  <circle cx="13" cy="4" r="1.6" fill="currentColor" />
+                  <path d="M11 21l2-6-3-3 1-4 3 3h3M10 8l-3 2v3M13 15l2 6" />
+                </svg></span>
+              <div class="tl">도보</div>
+              <div class="tm">약 <b>15–20분</b></div>
+              <div class="ts">대화역 → 제2전시장</div>
+            </div>
+            <div class="tr" style="--c: #7fd3ff">
+              <span class="ti"><svg viewBox="0 0 24 24">
+                  <rect x="4" y="3" width="16" height="15" rx="3" />
+                  <path d="M4 11h16M8 21v-3M16 21v-3M7 7h10" />
+                  <circle cx="8" cy="14.5" r=".8" fill="currentColor" />
+                  <circle cx="16" cy="14.5" r=".8" fill="currentColor" />
+                </svg></span>
+              <div class="tl">버스 <span>대화역 4번 출구</span></div>
+              <div class="chips"><i>089</i><i>039</i><i>97</i><i>39</i></div>
+              <div class="ts">광역 7300·1100·M7731·M7646·M7106 → 킨텍스 정류장, 도보 5분</div>
+            </div>
+            <div class="tr" style="--c: #ff7a9a">
+              <span class="ti"><svg viewBox="0 0 24 24">
+                  <path d="M5 16V11l2-5h10l2 5v5" />
+                  <rect x="3" y="11" width="18" height="6" rx="2" />
+                  <circle cx="7.5" cy="14" r="1" fill="currentColor" />
+                  <circle cx="16.5" cy="14" r="1" fill="currentColor" />
+                  <path d="M6 17v2M18 17v2" />
+                </svg></span>
+              <div class="tl">자동차</div>
+              <div class="tm">킨텍스 <b>유료 주차</b></div>
+              <div class="ts">P 게이트 1·2·3 · <em>주차 지원 없음</em></div>
+            </div>
+          </div>
+          <div class="maplinks">
+            <a href="https://map.naver.com/p/search/%ED%82%A8%ED%85%8D%EC%8A%A4%20%EC%A0%9C2%EC%A0%84%EC%8B%9C%EC%9E%A5"
+              target="_blank" rel="noopener"><span class="dot" style="background:#03c75a"></span>네이버 지도</a>
+            <a href="https://map.kakao.com/link/search/%ED%82%A8%ED%85%8D%EC%8A%A4%EC%A0%9C2%EC%A0%84%EC%8B%9C%EC%9E%A5"
+              target="_blank" rel="noopener"><span class="dot" style="background:#fee500"></span>카카오맵</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:14px">
+        <div class="map" aria-label="행사장 내부 배치도">
+          <div class="z-goods">굿즈존</div>
+          <div class="z-hsr">붕괴:<br>스타레일</div>
+          <div class="z-stage">무대존</div>
+          <div class="z-gi">원신</div>
+          <div class="z-galaxy">갤럭시<br>스토어</div>
+          <div class="z-fan">2차 창작 전시존</div>
+          <div class="z-gp">구글<br>플레이</div>
+          <div class="z-zzz">젠레스 존 제로</div>
+          <div class="z-in">입장 접수 · 입장 게이트</div>
+          <div class="z-diy">DIY존</div>
+        </div>
+        <p class="map-legend"><b>메인 행사장(7–8홀)</b> 스타레일·원신·젠레스 부스, DIY존, 2차 창작 전시존, 파트너사 부스, 무대존, 굿즈존<br><b>야외(후면 광장)</b>
+          붕괴3rd 부스, 미해결사건부 부스, 푸드존, 몬스터 에너지<br><span class="small">공식 배치도를 단순화한 그림이에요. 비가 오면 야외 부스 위치·일정이 바뀔 수
+            있어요.</span></p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="block" id="faq">
+      <div class="sec-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>자주 묻는 질문</h2>
+      </div>
+      <div class="ghead guide gi">
+        <img class="m float" src="assets/char/paimon.webp" alt="페이몬">
+        <div class="bubble">
+          <div class="who">페이몬</div>
+          <div class="say">궁금한 게 있으면 페이몬한테 물어봐! 여기 없는 건 <b>hoyoland2026.official@gmail.com</b>으로!</div>
+        </div>
+      </div>
+      <details>
+        <summary>현장에서 티켓을 살 수 있나요?</summary>
+        <p>아니요. 모든 입장권은 티켓링크 온라인 판매만 해요. 예매 마감은 당일 17시, 취소는 전날 17시까지(당일 취소·환불 불가).</p>
+      </details>
+      <details>
+        <summary>스크린샷으로 입장할 수 있나요?</summary>
+        <p>안 돼요. 당일 자정에 티켓링크 앱에서 활성화되는 모바일 티켓과 예매자 본인의 실물 신분증이 필요해요.</p>
+      </details>
+      <details>
+        <summary>다른 게임 부스도 체험할 수 있나요?</summary>
+        <p>네. 선택한 게임과 상관없이 모든 부스를 자유롭게 체험할 수 있어요. 웰컴 키트만 선택한 게임으로 받고 현장 교환은 안 돼요.</p>
+      </details>
+      <details>
+        <summary>티켓을 친구에게 양도할 수 있나요?</summary>
+        <p>대리 예매·양도·명의 변경 모두 불가해요. (미성년자는 직계가족 명의 예매 가능)</p>
+      </details>
+      <details>
+        <summary>무대 이벤트는 따로 예매해야 하나요?</summary>
+        <p>아니요. 자유 관람이에요. 유저 참여형 무대는 무대 펜스 앞 신청 데스크에서 선착순으로 받거나 현장 추첨해요. 공연은 시작 전에 메인 무대에 들어가 있어야 원활히 볼 수 있어요.</p>
+      </details>
+      <details>
+        <summary>현금 쓸 수 있나요?</summary>
+        <p>행사장 안은 카드·삼성페이·애플페이만 가능해요. 굿즈존, 유료 체험, DIY존, 물품 보관소 모두 현금 불가.</p>
+      </details>
+      <details>
+        <summary>2차 창작 의상으로 코스프레해도 되나요?</summary>
+        <p>네, 호요버스 게임 관련이면 가능해요. 원작 복장 수준 이상의 노출, 유혈 표현, 실물 날붙이·철제 소품·총기류는 금지예요. 환복은 탈의실에서만.</p>
+      </details>
+      <details>
+        <summary>물건을 잃어버렸어요.</summary>
+        <p>운영 본부나 근처 스태프에게 먼저 알려주세요. 못 찾으면 10월 7일까지 hoyoland2026.official@gmail.com 으로 물품 특징을 보내주세요.</p>
+      </details>
+      <details>
+        <summary>굿즈가 불량이에요.</summary>
+        <p>불량·하자 교환/환불은 10월 7일까지 메일로 접수해요. 구매 영수증을 꼭 첨부하세요. 단순 변심은 불가.</p>
+      </details>
+    </section>
+
+    <footer>
+      <div class="trio">
+        <img class="m float" src="assets/char/paimon.webp" alt="페이몬">
+        <img class="m float d1" src="assets/char/eous.webp" alt="이아스">
+        <img class="m float d2" src="assets/char/pompom.webp" alt="폼폼">
+      </div>
+      <div>주최·주관 <b>HOYOVERSE</b></div>
+      <div>후원 Google Play · 동아제약 · PlayStation · MONSTER ENERGY</div>
+      <div>문의 hoyoland2026.official@gmail.com</div>
+      <div>현장 사정에 따라 일정이 변경될 수 있어요 · 캐릭터 일러스트는 팬아트입니다</div>
+    </footer>
+  </main>
+
+  <script>
+    // 10/4(일) 통합 시간표 — 원신 / 붕괴: 스타레일 / 젠레스 존 제로 공식 시간표 3종 기준
+    const DATE = "2026-10-04";
+    const schedule = [
+      {
+        start: "10:30", end: "11:30", game: "zzz", label: "젠레스 존 제로", mini: "eous",
+        title: "뉴에리두 제목학원 w.Fairy",
+        desc: "로프꾼님의 상상력으로 완성한 제목, Fairy의 심사를 받아보세요!"
+      },
+      {
+        start: "12:00", end: "13:00", game: "gi", label: "원신", mini: "paimon",
+        title: "도전! 천상의 선율",
+        desc: "박자를 모르겠다면 감각으로! 리듬게임 고수 환영 · 참여자 현장 추첨"
+      },
+      {
+        start: "13:30", end: "14:30", game: "hsr", label: "붕괴: 스타레일", mini: "pompom",
+        title: "Star Symphony at 호요랜드",
+        desc: "로빈의 신곡부터 「Side Quest King」까지, 개척자를 위한 콘서트"
+      },
+      {
+        start: "15:00", end: "16:00", game: "gi", label: "원신", mini: "paimon",
+        title: "선율이 흐르는 음악회",
+        desc: "원신 OST 라이브 밴드 공연 · 10/5와 셋리스트가 달라요"
+      },
+      {
+        start: "16:30", end: "17:30", game: "all", label: "공통 이벤트",
+        title: "럭키드로우",
+        desc: "럭키드로우 쿠폰 소지자 대상 · 매일 80명 추첨 · 호명 시 현장에 있어야 수령"
+      },
+      {
+        start: "18:00", end: "19:00", game: "cos", label: "공통 이벤트",
+        title: "코스프레 퍼레이드",
+        desc: "오늘의 주인공은 코스어! 17:30부터 7–8홀 스탠딩존에서 대기 가능"
+      },
+      {
+        start: "19:00", end: "19:30", game: "end", label: "안내",
+        title: "퇴장 시간"
+      },
+    ];
+
+    const tl = document.getElementById("timeline");
+    const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+    schedule.forEach((s, i) => {
+      if (i > 0 && toMin(s.start) > toMin(schedule[i - 1].end)) {
+        const br = document.createElement("li");
+        br.className = "break";
+        br.innerHTML = `<span>· · · 휴식 ${toMin(s.start) - toMin(schedule[i - 1].end)}분</span>`;
+        tl.appendChild(br);
+      }
+      const li = document.createElement("li");
+      li.className = `item ${s.game}`;
+      li.dataset.group = ["gi", "hsr", "zzz"].includes(s.game) ? s.game : "common";
+      li.dataset.start = s.start;
+      li.dataset.end = s.end;
+      li.innerHTML = `
+      <div class="time"><span class="start">${s.start}</span><span class="end">~ ${s.end}</span></div>
+      <span class="node"></span>
+      <div class="card${s.mini ? " has-mini" : ""}">
+        <div class="tag"><svg><use href="#star4"/></svg>${s.label}<span class="live">LIVE</span></div>
+        <div class="title">${s.title}</div>
+        ${s.desc ? `<div class="desc">${s.desc}</div>` : ""}
+        ${s.mini ? `<img class="mini" src="assets/char/${s.mini}-head.webp" alt="" aria-hidden="true">` : ""}
+      </div>`;
+      tl.appendChild(li);
+    });
+
+    // 시간표 필터
+    const chips = document.querySelectorAll(".chip");
+    chips.forEach(chip => chip.addEventListener("click", () => {
+      chips.forEach(c => c.setAttribute("aria-pressed", c === chip));
+      const f = chip.dataset.filter;
+      document.querySelectorAll(".item").forEach(it => it.classList.toggle("dim", f !== "all" && it.dataset.group !== f));
+    }));
+
+    // 행사 당일엔 진행 중 / 종료 프로그램 표시
+    function markNow() {
+      const now = new Date();
+      const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+      if (today !== DATE) return;
+      const m = now.getHours() * 60 + now.getMinutes();
+      document.querySelectorAll(".item").forEach(it => {
+        const s = toMin(it.dataset.start), e = toMin(it.dataset.end);
+        it.classList.toggle("now", m >= s && m < e);
+        it.classList.toggle("past", m >= e);
+      });
+    }
+    markNow();
+    setInterval(markNow, 30000);
+
+
+    // 히어로 '지금/다음 무대' 위젯
+    function updateNowBar() {
+      const now = new Date();
+      const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+      const m = today === DATE ? now.getHours() * 60 + now.getMinutes() : (today < DATE ? -1 : 9999);
+      const cur = schedule.find(s => m >= toMin(s.start) && m < toMin(s.end));
+      const next = schedule.find(s => toMin(s.start) > m);
+      const set = (id, v) => (document.getElementById(id).textContent = v);
+      if (cur) {
+        document.getElementById("nowLbl").innerHTML = "<i></i>NOW ON STAGE";
+        set("nowT", cur.title); set("nowTm", `${cur.start} – ${cur.end}`);
+      } else if (m === 9999) {
+        set("nowLbl", "THANK YOU"); set("nowT", "오늘 무대가 모두 끝났어요"); set("nowTm", "");
+      } else {
+        const first = next || schedule[0];
+        set("nowLbl", m < 0 ? "FIRST STAGE" : "BREAK TIME");
+        set("nowT", m < 0 ? first.title : "잠시 쉬는 시간"); set("nowTm", m < 0 ? first.start : "");
+      }
+      const upcoming = cur ? next : (m < 0 ? schedule[1] : next);
+      if (upcoming) { set("nextT", upcoming.title); set("nextTm", upcoming.start); }
+      else { set("nextT", "다음 무대 없음"); set("nextTm", ""); }
+    }
+    updateNowBar();
+    setInterval(updateNowBar, 30000);
+
+
+    // 입장 타임라인: 당일 현재 단계 표시
+    function markEntry() {
+      const now = new Date();
+      const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+      if (today !== DATE) return;
+      const m = now.getHours() * 60 + now.getMinutes();
+      const lis = [...document.querySelectorAll("#entryTl li")];
+      const idx = lis.reduce((acc, li, i) => (m >= +li.dataset.t ? i : acc), -1);
+      lis.forEach((li, i) => { li.classList.toggle("cur", i === idx); li.classList.toggle("done", i < idx); });
+    }
+    markEntry();
+    setInterval(markEntry, 60000);
+
+    // 푸드존 탭
+    const ftabs = document.querySelectorAll(".ftabs .gtab");
+    ftabs.forEach(t => t.addEventListener("click", () => {
+      ftabs.forEach(x => x.setAttribute("aria-selected", x === t));
+      document.querySelectorAll(".fpanel").forEach(p => p.classList.toggle("on", p.id === "f-" + t.dataset.f));
+    }));
+
+    // 공유 (모바일 공유 시트, 없으면 링크 복사)
+    document.getElementById("shareBtn").addEventListener("click", async () => {
+      const data = { title: "호요랜드2026 10/4 현장 가이드", url: location.href };
+      try {
+        if (navigator.share) await navigator.share(data);
+        else { await navigator.clipboard.writeText(location.href); shareBtn.textContent = "복사됨!"; setTimeout(() => (shareBtn.textContent = "공유"), 1500); }
+      } catch { }
+    });
+
+
+    // 선택한 칩이 슬라이드 안에서 보이도록
+    document.querySelectorAll(".filters, .gtabs").forEach(row => row.addEventListener("click", e => {
+      const b = e.target.closest("button");
+      if (b) b.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }));
+
+    // 게임 부스 탭
+    const gtabs = document.querySelectorAll("#booths .gtab");
+    gtabs.forEach(t => t.addEventListener("click", () => {
+      gtabs.forEach(x => x.setAttribute("aria-selected", x === t));
+      document.querySelectorAll(".gpanel").forEach(p => p.classList.toggle("on", p.id === "g-" + t.dataset.g));
+    }));
+
+    // 체크리스트 / 테마 저장 (기기별, 실패해도 동작)
+    const store = {
+      get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+      set(k, v) { try { localStorage.setItem(k, v); } catch { } },
+    };
+    const checks = [...document.querySelectorAll("#checklistBox input")];
+    function updatePrep() {
+      const n = checks.filter(c => c.checked).length;
+      document.getElementById("prepFill").style.width = (n / checks.length * 100) + "%";
+      document.getElementById("prepCount").textContent = `${n} / ${checks.length}`;
+      document.querySelector(".prep-photo").classList.toggle("done", n === checks.length);
+    }
+    checks.forEach(cb => {
+      cb.checked = store.get("hl-chk-" + cb.dataset.k) === "1";
+      cb.addEventListener("change", () => { store.set("hl-chk-" + cb.dataset.k, cb.checked ? "1" : "0"); updatePrep(); });
+    });
+    updatePrep();
+
+    const themeBtn = document.getElementById("themeBtn");
+    function applyTheme(t) {
+      if (t === "light") document.documentElement.dataset.theme = "light";
+      else delete document.documentElement.dataset.theme;
+      themeBtn.textContent = t === "light" ? "☀" : "☾";
+    }
+    applyTheme(store.get("hl-theme"));
+    themeBtn.addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      store.set("hl-theme", next);
+      applyTheme(next);
+    });
+
+    // 내비 현재 섹션 표시
+    const links = [...document.querySelectorAll("#tabs a, #botnav a")];
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+    }), { rootMargin: "-40% 0px -55% 0px" });
+    document.querySelectorAll("section.block, #food").forEach(s => io.observe(s));
+
+
+    // 밤하늘 반짝이 + 컨페티
+    const sky = document.getElementById("sky");
+    for (let i = 0; i < 22; i++) {
+      const sp = document.createElement("span");
+      sp.className = "spark";
+      const size = 6 + Math.random() * 14;
+      sp.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;width:${size}px;height:${size}px;animation-delay:${Math.random() * 3}s`;
+      sp.innerHTML = '<svg><use href="#star4"/></svg>';
+      sky.appendChild(sp);
+    }
+    const colors = ["#5fe0cf", "#f4d27a", "#e08cff", "#7fd3ff"];
+    for (let i = 0; i < 8; i++) {
+      const c = document.createElement("span");
+      c.className = "confetti";
+      c.style.cssText = `left:${Math.random() * 100}%;background:${colors[i % 4]};animation-delay:${-Math.random() * 9}s;animation-duration:${8 + Math.random() * 6}s`;
+      sky.appendChild(c);
+    }
+  </script>
+</body>
+
+</html>
