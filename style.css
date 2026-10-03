@@ -79,8 +79,7 @@ body {
   min-height: 100vh;
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
   color: var(--ink);
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bottom) 100%);
-  background-attachment: fixed;
+  background: var(--bg-mid);
   overflow-x: hidden;
   word-break: keep-all;
 }
@@ -96,6 +95,8 @@ a {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bottom) 100%);
+  transform: translateZ(0);
 }
 
 .sky::before,
@@ -103,8 +104,7 @@ a {
   content: "";
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: .5;
+  opacity: .45;
 }
 
 .sky::before {
@@ -127,13 +127,13 @@ a {
   position: absolute;
   color: #fff;
   animation: twinkle 3.2s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .spark svg {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 0 6px rgba(190, 170, 255, .9));
 }
 
 .confetti {
@@ -144,6 +144,7 @@ a {
   border-radius: 2px;
   opacity: .55;
   animation: drift 9s linear infinite;
+  will-change: transform;
 }
 
 @keyframes twinkle {
@@ -188,8 +189,6 @@ a {
   top: 0;
   z-index: 20;
   background: color-mix(in srgb, var(--bg-top) 80%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -290,8 +289,6 @@ a {
   border: 1px solid var(--card-border);
   font-size: 14px;
   font-weight: 600;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .pill .k {
@@ -322,6 +319,7 @@ a {
 
 .float {
   animation: bob 3.6s ease-in-out infinite;
+  will-change: transform;
 }
 
 .float.d1 {
@@ -402,8 +400,6 @@ h2 {
   border-radius: 24px;
   padding: 26px;
   box-shadow: 0 20px 60px rgba(10, 5, 40, .25);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 .panel.deco::before,
@@ -453,8 +449,6 @@ h2 {
   border: 1px solid var(--card-border);
   border-radius: 18px;
   padding: 18px 20px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   min-width: 0;
 }
 
@@ -1086,8 +1080,6 @@ h2 {
   align-items: center;
   gap: 6px 12px;
   background: rgba(18, 14, 60, .72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, .14);
   color: #f3f1ff;
 }
@@ -1226,8 +1218,6 @@ h2 {
   padding: 9px 13px;
   border-radius: 14px;
   background: rgba(18, 14, 60, .72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, .14);
   color: #f3f1ff;
   font-size: 13px;
@@ -1491,8 +1481,6 @@ h2 {
   padding: 10px 14px;
   border-radius: 14px;
   background: rgba(18, 14, 60, .72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, .14);
   color: #f3f1ff;
   font-size: 13px;
@@ -1528,8 +1516,6 @@ h2 {
   display: grid;
   align-content: start;
   gap: 3px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 .tr .ti {
@@ -2064,8 +2050,6 @@ footer .trio .m:nth-child(2) {
   border-radius: 16px;
   padding: 12px 14px;
   min-width: 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .nowbar .lbl {
@@ -2462,8 +2446,6 @@ footer .trio .m:nth-child(2) {
     z-index: 30;
     padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
     background: color-mix(in srgb, var(--bg-top) 88%, transparent);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border-top: 1px solid var(--line);
   }
 
@@ -2517,3 +2499,23 @@ footer .trio .m:nth-child(2) {
 /* 블록 위 반짝이·컨페티가 비쳐 보이지 않도록 장식은 블록 뒤에서 조금 약하게 */
 .spark { opacity: .7; }
 .confetti { opacity: .35; }
+
+/* ── 성능: 상·하단 바는 흐림 대신 거의 불투명한 배경 ─────────── */
+.topnav { background: color-mix(in srgb, var(--bg-top) 96%, transparent); }
+.botnav { background: color-mix(in srgb, var(--bg-top) 97%, transparent); }
+
+/* ── 인앱 브라우저(카톡 등) 가벼운 모드 ─────────────────── */
+html.lite .spark, html.lite .confetti { display: none; }
+html.lite .float, html.lite .nowbar .lbl i { animation: none; }
+html.lite .ghead .m, html.lite .trio .m, html.lite .card .mini { filter: none; }
+html.lite { scroll-behavior: auto; }
+
+.inapp {
+  position: relative; z-index: 25; display: none;
+  align-items: center; gap: 10px; padding: 10px 16px;
+  background: #fee500; color: #191919; font-size: 13px; font-weight: 600;
+}
+html.lite .inapp { display: flex; }
+.inapp span { flex: 1; min-width: 0; line-height: 1.4; }
+.inapp a { flex: none; padding: 7px 12px; border-radius: 999px; background: #191919; color: #fee500; text-decoration: none; font-weight: 800; font-size: 12px; }
+.inapp button { flex: none; border: 0; background: none; font-size: 18px; line-height: 1; color: #191919; cursor: pointer; padding: 4px; }

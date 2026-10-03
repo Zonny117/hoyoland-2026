@@ -12,6 +12,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    // 카톡 등 인앱 브라우저는 그래픽 여유가 적어서 장식 애니메이션을 끈 가벼운 모드로
+    (function () {
+      var ua = navigator.userAgent;
+      var inApp = /KAKAOTALK|NAVER\(inapp|Instagram|FBAN|FBAV|Line\/|everytimeApp|DaumApps/i.test(ua);
+      var low = (navigator.hardwareConcurrency || 8) <= 4;
+      if (inApp || low) document.documentElement.classList.add("lite");
+      if (/KAKAOTALK/i.test(ua)) document.documentElement.classList.add("kakao");
+    })();
+  </script>
 </head>
 
 <body>
@@ -27,6 +37,12 @@
   </svg>
 
   <div class="sky" id="sky" aria-hidden="true"></div>
+
+  <div class="inapp" id="inapp" role="note">
+    <span>카톡 브라우저에서는 느릴 수 있어요. 외부 브라우저로 열면 더 부드러워요!</span>
+    <a id="openExternal" href="#">외부 브라우저</a>
+    <button type="button" id="inappClose" aria-label="닫기">×</button>
+  </div>
 
   <nav class="topnav">
     <div class="in">
@@ -927,6 +943,16 @@
     });
     updatePrep();
 
+
+    // 카톡 인앱 안내 배너
+    (function () {
+      const bar = document.getElementById("inapp");
+      const isKakao = document.documentElement.classList.contains("kakao");
+      if (!isKakao || store.get("hl-inapp-hide") === "1") { bar.remove(); return; }
+      document.getElementById("openExternal").href = "kakaotalk://web/openExternal?url=" + encodeURIComponent(location.href);
+      document.getElementById("inappClose").addEventListener("click", () => { store.set("hl-inapp-hide", "1"); bar.remove(); });
+    })();
+
     const themeBtn = document.getElementById("themeBtn");
     function applyTheme(t) {
       if (t === "light") document.documentElement.dataset.theme = "light";
@@ -950,7 +976,8 @@
 
     // 밤하늘 반짝이 + 컨페티
     const sky = document.getElementById("sky");
-    for (let i = 0; i < 22; i++) {
+    const lite = document.documentElement.classList.contains("lite");
+    for (let i = 0; i < (lite ? 0 : 12); i++) {
       const sp = document.createElement("span");
       sp.className = "spark";
       const size = 6 + Math.random() * 14;
@@ -959,7 +986,7 @@
       sky.appendChild(sp);
     }
     const colors = ["#5fe0cf", "#f4d27a", "#e08cff", "#7fd3ff"];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < (lite ? 0 : 5); i++) {
       const c = document.createElement("span");
       c.className = "confetti";
       c.style.cssText = `left:${Math.random() * 100}%;background:${colors[i % 4]};animation-delay:${-Math.random() * 9}s;animation-duration:${8 + Math.random() * 6}s`;
